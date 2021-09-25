@@ -1,0 +1,10 @@
+{
+  "Comment_ReadMe": "**ThreadCount Cannot be < 0 and is always an integer**",
+  "threadCount": 5,
+  "Comment_ReadMe": "**Load per thread represents number of requests to be executed per thread**",
+  "Comment_ReadMe": "**If load per thread is <= totalnumberoflines in file, only one thread will be spawned**",
+  "loadPerThread": 5,
+  "outputFileName": "result.csv",
+  "inputFilePath1": "C:\\Users\\anegundi\\Desktop\\harshitha\\NPR\\Coding Challenge\\File1.txt",
+  "inputFilePath2": "C:\\Users\\anegundi\\Desktop\\harshitha\\NPR\\Coding Challenge\\File2.txt"
+}
