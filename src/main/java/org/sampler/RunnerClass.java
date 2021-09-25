@@ -142,9 +142,9 @@ public class RunnerClass {
             JsonNode expectedNode = new ObjectMapper().readTree(expectedResp);
             JsonNode actualNode = new ObjectMapper().readTree(actualResp);
             if(expectedNode.equals(actualNode)){
-                return "PASS";
+                return "EQUALS";
             }
-            return "FAIL";
+            return "NOT_EQUALS";
         } catch (Exception e) {
             e.printStackTrace();
             return "EXCEPTION";
