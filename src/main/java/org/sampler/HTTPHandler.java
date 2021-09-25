@@ -1,8 +1,15 @@
 package org.sampler;
 
+import io.restassured.RestAssured;
+import io.restassured.config.HttpClientConfig;
+import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apache.http.params.CoreConnectionPNames;
+
 import java.util.HashMap;
+
+import static io.restassured.RestAssured.config;
 import static io.restassured.RestAssured.given;
 
 /**
@@ -21,7 +28,12 @@ public class HTTPHandler {
     HashMap<String, String> getResponse(String requestEndPoint) {
         HashMap<String, String> presponse = new HashMap<>();
         try {
+            RestAssuredConfig config = RestAssured.config()
+                    .httpClient(HttpClientConfig.httpClientConfig()
+                            .setParam(CoreConnectionPNames.CONNECTION_TIMEOUT, 5000)
+                            .setParam(CoreConnectionPNames.SO_TIMEOUT, 5000));
             Response response = given()
+                    .config(config)
                     .contentType(ContentType.JSON)
                     .when()
                     .get(requestEndPoint)
