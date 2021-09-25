@@ -2,11 +2,20 @@ package org.sampler;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import org.junit.Test;
-
 import java.io.IOException;
 import java.util.List;
 
+/*
+
+*
+* */
+
+/**
+ * This is a Test Class which will initiate the runs
+ * Keep your input files ready and make sure the program has access to create& write outputfile
+ *
+ * @author  Raghav
+ */
 public class AppTest {
 
     public static void main(String args[]) {
@@ -23,7 +32,6 @@ public class AppTest {
             executor = new RunnerClass(loadHolder, config.get("outputFileName").toString());
             executor.startThreadSpawn(config.get("inputFilePath1").toString(),
                     config.get("inputFilePath2").toString(),
-                    config.get("outputFileName").toString(),
                     config.get("threadCount").toString());
         }catch(IOException | ParseException e){
             System.out.println("Unhandled scenario/input");

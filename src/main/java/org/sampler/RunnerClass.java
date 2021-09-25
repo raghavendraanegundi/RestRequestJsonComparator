@@ -22,6 +22,16 @@ public class RunnerClass {
         rc= new ReportCreator(outPutFileName);
     }
 
+    /**
+     * This method is used to create a runnable object.
+     * Runnable object makes http request for the range of lines, processes the responses, pushes the findings to report
+     * This defines what each thread has to perform
+     *
+     * @param rangeObject container start index line number and end index line number
+     * @param filePath1 input file path
+     * @param filePath2 input file path
+     * @return returns a runnable object to be passed to thread execution
+     */
     Runnable createNewRunnable(Object rangeObject, String filePath1, String filePath2) {
         Runnable r = new Runnable() {
             @Override
@@ -66,8 +76,16 @@ public class RunnerClass {
         };
         return r;
     }
-
-    public void startThreadSpawn(String filePath1, String filePath2, String outputFilePath, String threadCountStr) {
+    /**
+     * This method is used to manage and spawn thread based on number of thread-count, loadperthread
+     * Also manages the pool of thread, instantiates thread until all the runnable objects are executed.
+     * Also makes sure the thread count is maintained as configured
+     *
+     * @param filePath1 path to input file
+     * @param filePath2 path to input file
+     * @param threadCountStr max allowed thread at any point of time
+     */
+    public void startThreadSpawn(String filePath1, String filePath2, String threadCountStr) {
         int threadCount = Integer.parseInt(threadCountStr);
         ListIterator<Object> loadIterator = loadHolder.listIterator();
         ExecutorService executor = Executors.newFixedThreadPool(threadCount);
@@ -82,7 +100,13 @@ public class RunnerClass {
         rc.closeFile();
         System.out.println("Finished all threads");
     }
-
+    /**
+     * This method is used to get specific lines from the input file based on start and end index number
+     *
+     * @param startIndex linenumber of start from
+     * @param  endIndex linenumber to stop retrieval
+     * @return List of endpoints strings retrieved
+     */
     ArrayList<String> getLinesFromFile(int startIndex, int endIndex, String filePath) {
         try {
             ArrayList<String> lines = new ArrayList<>();
@@ -106,7 +130,13 @@ public class RunnerClass {
         }
         return null;
     }
-
+    /**
+     * This method is used to compare two json responses and return the result.
+     *
+     * @param expectedResp expected response object one endpoint
+     * @param actualResp actual response object from another endpoint
+     * @return Return string "PASS"/"FAIL"/"Exception" based on the comparison
+     */
     String responseComparison(String expectedResp, String actualResp) {
         try {
             JsonNode expectedNode = new ObjectMapper().readTree(expectedResp);
@@ -116,6 +146,7 @@ public class RunnerClass {
             }
             return "FAIL";
         } catch (Exception e) {
+            e.printStackTrace();
             return "EXCEPTION";
         }
     }
