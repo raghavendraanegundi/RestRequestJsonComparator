@@ -8,11 +8,9 @@ More enhancements/optimization will be done as I progress.
 
 ## Features:
 
-- Triggers requests to endpoints listed in two files
-- Responses of endpoints from both files are compared with respect to the line number they occur in.
-- Both the files should have same number of endpoints 
-- This solution is developed to run in multi-threaded fashion to manage high-input flow 
-- ThreadCount and LoadPerCount are configurable from the config.json file
-- Here Load meaning , number of endpoints each thread is allowed to process.
-- The output is written into an .csv file by default, can be changed in config.json
+- Computes the load for each thread based on number of endpoints in file, thread count set in config.json and loadperthread set in config.json
+- Spawns threads based on above computation and assigns load to each thread
+- Reads endpoints from two different input files and sends http requests to the endpoints.
+- Compare the responses of endpoints from both the input files line by line
+- The output is written into an result.csv file by default, can be changed in config.json
 
