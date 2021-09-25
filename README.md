@@ -10,10 +10,10 @@ More enhancements/optimization will be done as I progress.
 ## Features:
 
 - Computes the load for each thread based on number of endpoints in file, thread count set in config.json and loadperthread set in config.json
-- Spawns threads based on above computation and assigns load to each thread
+- Spawn threads based on above computation and assigns load to each thread
 - Reads endpoints from two different input files and sends http requests to the endpoints.
 - Compare the responses of endpoints from both the input files line by line
-- The output is written into an result.csv file by default, can be changed in config.json
+- The output is written into a result.csv file by default, can be changed in config.json
 
 ## Example input files:
 

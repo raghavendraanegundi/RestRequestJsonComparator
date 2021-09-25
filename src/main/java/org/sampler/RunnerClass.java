@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -63,7 +62,7 @@ public class RunnerClass {
                 while(file1Iterator.hasNext() && file2Iterator.hasNext()){
                     file1Response=req.getResponse(file1Iterator.next().toString());
                     file2Response=req.getResponse(file2Iterator.next().toString());
-                    if(!file1Response.get("Status").toString().equals("Failed") || !file2Response.get("Status").toString().equals("Failed")){
+                    if(!file1Response.get("Status").equals("Failed") || !file2Response.get("Status").equals("Failed")){
                         result = responseComparison(file1Response.get("ResponseBody"), file2Response.get("ResponseBody"));
                         file1Response.put("TestStatus", result);
                     }else {

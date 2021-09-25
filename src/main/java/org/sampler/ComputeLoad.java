@@ -28,7 +28,7 @@ public class ComputeLoad {
      * @param allowedLoadPerThread represents the max number of lines a thread can process
      * @param inputFilePath File for which the computation is required
      */
-    public void computeLoadPerThread(int allowedLoadPerThread, String inputFilePath, int threadCount){
+    public void computeLoadPerThread(int allowedLoadPerThread, String inputFilePath){
         long startIndex =0;
         long endIndex=allowedLoadPerThread;
         long numberOfLines = getCountOfLines(inputFilePath);

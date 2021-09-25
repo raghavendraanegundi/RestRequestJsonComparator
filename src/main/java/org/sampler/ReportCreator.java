@@ -65,7 +65,7 @@ public class ReportCreator {
         String result = file1Response.get("Endpoint") +","+file1Response.get("StatusCode");
         result += ","+ file2Response.get("Endpoint") +","+file2Response.get("StatusCode");
         result += ","+file1Response.get("TestStatus");
-        if(file1Response.get("TestStatus").toString().equals("Error")){
+        if(file1Response.get("TestStatus").equals("Error")){
             result += ","+file1Response.get("Error");
         }
         try {

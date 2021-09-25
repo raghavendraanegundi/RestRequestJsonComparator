@@ -18,15 +18,14 @@ import java.util.List;
  */
 public class AppTest {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         try {
             ConfigLoader configLoader = new ConfigLoader();
             ComputeLoad computeLoad = new ComputeLoad();
             RunnerClass executor;
             JSONObject config = configLoader.getConfig();
             computeLoad.computeLoadPerThread(Integer.parseInt(config.get("loadPerThread").toString()),
-                    config.get("inputFilePath1").toString(),
-                    Integer.parseInt(config.get("threadCount").toString()));
+                    config.get("inputFilePath1").toString());
             List<Object> loadHolder = computeLoad.loadHolder;
             System.out.println(loadHolder);
             executor = new RunnerClass(loadHolder, config.get("outputFileName").toString());

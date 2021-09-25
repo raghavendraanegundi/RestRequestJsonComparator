@@ -5,6 +5,6 @@
   "Comment_ReadMe": "**If load per thread is <= totalnumberoflines in file, only one thread will be spawned**",
   "loadPerThread": 5,
   "outputFileName": "result.csv",
-  "inputFilePath1": "C:\\Users\\anegundi\\Desktop\\harshitha\\NPR\\Coding Challenge\\5000File1.txt",
-  "inputFilePath2": "C:\\Users\\anegundi\\Desktop\\harshitha\\NPR\\Coding Challenge\\5000File2.txt"
+  "inputFilePath1": "C:\\Users\\anegundi\\Desktop\\harshitha\\NPR\\Coding Challenge\\File1.txt",
+  "inputFilePath2": "C:\\Users\\anegundi\\Desktop\\harshitha\\NPR\\Coding Challenge\\File2.txt"
 }
